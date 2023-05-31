@@ -29,20 +29,20 @@ def volume_component_cc(image : sitk.Image) -> list:
 def mask_overlap(image1 : sitk.Image, image2 : sitk.Image) -> float:
     '''Get percentage of overlap between gtv and (95%) dose'''
     vol1 = volume_mask(image1)
-    if vol1>0:
+    if vol1 > 0:
         return volume_mask(image2*image1) / vol1
     else:
-        raise Exception("Volune of mask is 0")
+        raise Exception("Volume of mask is 0")
 
 
 def dose_percentage_region(dose_image : sitk.Image, target_intensity : float, percentage : float = 0.95) -> sitk.Image:
-    '''Create a mask of where the dose is above a certain percentage of the
+    '''Create a mask of where the RTDOSE is above a certain percentage of the
       target intensity (e.g. 95% of 60 Gy)'''
     return dose_image >= target_intensity * percentage
 
 
 def get_target_dose (image: sitk.Image) -> int:
-    '''Guess target dose from maximum value in dose image (54 or 60)'''
+    '''Guess target dose from maximum value in RTDOSE image (54 or 60)'''
     MinMax = sitk.MinimumMaximumImageFilter()
     MinMax.Execute(image)
     if MinMax.GetMaximum() > 60:
@@ -90,7 +90,7 @@ def type_recurrence(label_image : sitk.Image, baseline : sitk.Image) -> int:
     local = 0
     distant = 0
     for t in tumors:
-        if mask_overlap(t, baseline)>0:
+        if mask_overlap(t, baseline) > 0:
             local += 1
         else:
             distant += 1
