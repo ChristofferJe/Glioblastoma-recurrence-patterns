@@ -135,6 +135,8 @@ If the MSD is large, it is typically one of the following two cases:
 
 **B.** The MR scan is rotated in comparison to the CT scan, and the registration has not been able to fix the rotation issue. This problem is often combined with an incomplete brain mask, but it can also happen when the brain mask is fine. In this case the MSD reflects the quality of the registration, and the bad registration can cause the data analysis to be flawed. An example of a bad registration with a rotation issue is shown below. Here the MSD is 5.65 mm.
 
+![](readme_images/registration_rotation.png)
+
 Out of all the nine registrations with a large MSD, only one of the scans has a complete brain mask, whereas the rest have incomplete brain masks. This means that if the registration performs badly, it is typically because of an incomplete brain mask. In both cases, however, a large MSD can indicate that something may also go wrong in the data analysis.
 
 ## Accuracy of automatic recurrence type categorization
