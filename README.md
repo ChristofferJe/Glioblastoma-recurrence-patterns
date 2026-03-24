@@ -1,3 +1,4 @@
+# Glioblastoma Recurrence Patterns
 The following is a description of the different steps of our data analysis pipeline as well as a guide on how to execute it. The pipeline takes in radiology scans (MR and CT) from patients suffering from glioblastoma and returns an analysis of relevant metrics based on the scans. To get an initial understanding of the pipeline, we recommend reading the [project description](project_description.pdf) before continuing.
 
 [[_TOC_]]
